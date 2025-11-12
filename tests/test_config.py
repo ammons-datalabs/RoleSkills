@@ -2,7 +2,7 @@
 
 import pytest
 import dspy
-from observable_agent_starter import config
+from roleskills import config
 
 
 @pytest.fixture(autouse=True)

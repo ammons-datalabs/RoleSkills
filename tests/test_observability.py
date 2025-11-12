@@ -2,7 +2,7 @@
 
 import pytest
 import dspy
-from observable_agent_starter import ObservabilityProvider, create_observability, config
+from roleskills import ObservabilityProvider, create_observability, config
 
 
 @pytest.fixture(autouse=True)
@@ -64,7 +64,7 @@ def test_create_observability_handles_missing_lm(monkeypatch):
 
 def test_log_generation_helper(monkeypatch):
     """ObservabilityProvider.log_generation should call log_langfuse_generation."""
-    import observable_agent_starter.observability as observability_module
+    import roleskills.observability as observability_module
 
     calls = []
 

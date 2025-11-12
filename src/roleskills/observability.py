@@ -14,7 +14,7 @@ class ObservabilityProvider:
     inherited via multiple inheritance.
 
     Example usage:
-        from observable_agent_starter import ObservabilityProvider, create_observability
+        from roleskills import ObservabilityProvider, create_observability
         import dspy
 
         class MyAgent(dspy.Module):
