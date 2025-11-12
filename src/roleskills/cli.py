@@ -21,8 +21,13 @@ def main(argv: list[str] | None = None) -> int:
     # Add subcommands
     sub = parser.add_subparsers(dest="cmd")
 
-    p_parse = sub.add_parser("jd-parse", help="Parse a JD markdown file to JSON")
+    p_parse = sub.add_parser("jd-parse", help="Parse a JD markdown file to JSON (deterministic)")
     p_parse.add_argument("path", help="Path to JD .md/.txt")
+
+    p_parse_llm = sub.add_parser("jd-parse-llm", help="Parse a JD using LLM hybrid pipeline")
+    p_parse_llm.add_argument("path", help="Path to JD .md/.txt")
+    p_parse_llm.add_argument("--model", default="gpt-4o-mini", help="OpenAI model to use")
+    p_parse_llm.add_argument("--no-cache", action="store_true", help="Disable caching")
 
     args = parser.parse_args(argv)
 
@@ -37,6 +42,18 @@ def main(argv: list[str] | None = None) -> int:
         jd = parse_jd(text)
         print(json.dumps(jd.model_dump(), indent=2, ensure_ascii=False))
         return 0
+
+    if args.cmd == "jd-parse-llm":
+        text = Path(args.path).read_text(encoding="utf-8")
+        from .jd.llm_parser import llm_parse_jd
+
+        try:
+            jd = llm_parse_jd(text, model=args.model, use_cache=not args.no_cache)
+            print(json.dumps(jd.model_dump(), indent=2, ensure_ascii=False))
+            return 0
+        except ValueError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            return 1
 
     # Default behavior (no subcommand)
     observability = create_observability("cli", configure_lm=False)

@@ -35,6 +35,9 @@ htmlcov/
 nosetests.xml
 coverage.xml
 
+# LLM parser cache
+.cache/jd_parsed/
+
 # Linting and formatting
 .ruff_cache/
 
