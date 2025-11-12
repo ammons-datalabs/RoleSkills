@@ -25,9 +25,11 @@ def clean_jd_text(raw: str) -> str:
             # beautifulsoup4 not installed, do basic tag stripping
             text = re.sub(r"<[^>]+>", " ", text)
 
-    # Normalize whitespace
-    text = re.sub(r"\s+", " ", text)
-    text = re.sub(r"\n\s*\n", "\n\n", text)  # Keep paragraph breaks
+    # Normalize whitespace while preserving line structure
+    # First collapse multiple spaces on same line, but keep newlines
+    text = re.sub(r"[ \t]+", " ", text)
+    # Then normalize multiple newlines to double newline (paragraph break)
+    text = re.sub(r"\n\s*\n+", "\n\n", text)
 
     # Remove typical footer clutter (split and take first part)
     for cutoff in [
