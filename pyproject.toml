@@ -5,18 +5,35 @@ build-backend = "hatchling.build"
 [project]
 name = "roleskills"
 version = "0.1.0"
-description = "Extracts, scores, and evidences role-specific skills from GitHub repos and job descriptions using agentic pipelines"
+description = "Match developers to roles by extracting evidence from GitHub repositories and scoring against job requirements"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
   { name = "Jaybe Ammons", email = "jaybe@ammonsdatalabs.com" }
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
+keywords = ["skills", "job-matching", "github", "evidence", "developer-portfolio", "resume"]
+
+[project.urls]
+Homepage = "https://github.com/ammons-datalabs/roleskills"
+Repository = "https://github.com/ammons-datalabs/roleskills"
+Issues = "https://github.com/ammons-datalabs/roleskills/issues"
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development",
+]
 dependencies = [
   "dspy-ai",
   "langfuse",
-  "jinja2",
-  "starlette>=0.49.1"
+  "openai>=1.0.0",
+  "pydantic>=2.0.0",
 ]
 
 [tool.hatch.build.targets.wheel]
