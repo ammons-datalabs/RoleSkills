@@ -79,3 +79,23 @@ logs/
 # Local demo/test scripts
 demo.sh
 test_fastapi.sh
+
+# Evidence databases (may contain company/personal data)
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.db-shm
+*.db-wal
+
+# Company-specific analysis files (PII/confidential)
+*_analysis.md
+*_analysis_*.md
+*_analysis.pdf
+*_analysis_*.pdf
+*_score*.json
+tests/data/jd_*_*.json  # Real job descriptions (keep jd1.md, jd2.md examples)
+
+# Exported portfolios and reports
+portfolio_*.md
+report_*.md
