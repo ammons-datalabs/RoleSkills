@@ -5,9 +5,9 @@
 
 **Match developers to roles by extracting evidence from GitHub repositories and scoring against job description requirements.**
 
-## Status: Work in Progress
-
-RoleSkills is under active development. The core pipeline is functional but the project is not yet ready for production use. We're building incrementally through milestones (see Roadmap below).
+> **Status: On hold**  
+> Development is paused.  
+> The repository is kept for reference; issues and PRs are not being actively monitored.
 
 ## What It Does
 
