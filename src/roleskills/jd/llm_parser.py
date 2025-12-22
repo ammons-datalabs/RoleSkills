@@ -103,6 +103,8 @@ Output only valid JSON, no explanation."""
     )
 
     result_json = response.choices[0].message.content
+    if result_json is None:
+        raise ValueError("OpenAI returned empty response")
     jd = JD.model_validate_json(result_json)
 
     # Cache result

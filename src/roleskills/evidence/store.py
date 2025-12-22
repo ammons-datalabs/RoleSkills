@@ -191,8 +191,7 @@ class EvidenceStore:
 
         with self._conn() as con:
             placeholders = ",".join("?" * len(evidence_ids))
-            # nosec B608 - placeholders are safe, values passed as parameters
-            query = f"SELECT * FROM evidence WHERE evidence_id IN ({placeholders})"
+            query = f"SELECT * FROM evidence WHERE evidence_id IN ({placeholders})"  # nosec B608
             cur = con.execute(query, evidence_ids)
             return [self._row_to_chunk(row) for row in cur.fetchall()]
 

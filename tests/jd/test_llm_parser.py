@@ -80,6 +80,7 @@ def test_llm_parse_jd_prompt_construction(monkeypatch, tmp_path):
         print("="*80)
 
         # Verify prompt contains key elements
+        assert captured_prompt is not None
         assert "TEXT" in captured_prompt
         assert "PREPARSED" in captured_prompt
         assert "Python" in captured_prompt
