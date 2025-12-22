@@ -13,12 +13,6 @@ authors = [
 ]
 requires-python = ">=3.11"
 keywords = ["skills", "job-matching", "github", "evidence", "developer-portfolio", "resume"]
-
-[project.urls]
-Homepage = "https://github.com/ammons-datalabs/roleskills"
-Repository = "https://github.com/ammons-datalabs/roleskills"
-Issues = "https://github.com/ammons-datalabs/roleskills/issues"
-
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -35,6 +29,11 @@ dependencies = [
   "openai>=1.0.0",
   "pydantic>=2.0.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ammons-datalabs/roleskills"
+Repository = "https://github.com/ammons-datalabs/roleskills"
+Issues = "https://github.com/ammons-datalabs/roleskills/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/roleskills"]
