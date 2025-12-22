@@ -1,8 +1,6 @@
 """Tests for factor computation."""
 
-from datetime import datetime, timezone
 
-from roleskills.evidence.schema import EvidenceChunk
 from roleskills.score.factors import compute_factors
 from roleskills.score.models import EvidenceHit
 

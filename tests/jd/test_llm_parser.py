@@ -159,7 +159,6 @@ def test_llm_parse_jd_can_bypass_cache(monkeypatch, tmp_path):
 )
 def test_llm_parse_jd_integration_realistic(monkeypatch, tmp_path):
     """Integration test with real OpenAI API - only runs if API key present."""
-    import hashlib
     from roleskills.jd.preprocess import clean_jd_text
     from roleskills.jd.parser import parse_jd as deterministic_parse
 
@@ -203,7 +202,7 @@ def test_llm_parse_jd_integration_realistic(monkeypatch, tmp_path):
             assert tag.islower() or "-" in tag
             assert " " not in tag  # No spaces in tags
 
-    print(f"\n✅ LLM REFINED RESULT:")
+    print("\n✅ LLM REFINED RESULT:")
     print(f"   Role: {result.role}")
     print(f"   Requirements: {len(result.requirements)}")
     print("\n   Requirements by weight:")

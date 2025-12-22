@@ -1,6 +1,5 @@
 """Tests for GitHub permalink generation."""
 
-import pytest
 
 from roleskills.evidence.anchors import github_commit_anchor
 

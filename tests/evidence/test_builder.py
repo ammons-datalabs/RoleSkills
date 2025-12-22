@@ -220,7 +220,7 @@ def test_build_index_quality_filtering(temp_git_repo, temp_db):
     store = EvidenceStore(temp_db)
 
     # Build with high quality floor
-    stats = build_index(
+    _stats = build_index(  # noqa: F841
         author="test",
         repo_dirs=[temp_git_repo],
         store=store,

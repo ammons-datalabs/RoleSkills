@@ -51,7 +51,7 @@ def iter_diff_hunks(
         m = HUNK_HEADER.match(ln)
         if m and path:
             start = int(m.group("start"))
-            length = int(m.group("len") or "1")
+            _length = int(m.group("len") or "1")  # noqa: F841
 
             # Collect hunk lines (lines starting with +, -, or space)
             buf = []

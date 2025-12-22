@@ -1,6 +1,5 @@
 """Tests for quality scoring."""
 
-import pytest
 
 from roleskills.evidence.quality import compute_quality
 

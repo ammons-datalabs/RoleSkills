@@ -1,6 +1,5 @@
 """Tests for diff parsing and chunking."""
 
-import pytest
 
 from roleskills.evidence.chunks import iter_diff_hunks, normalize_text
 

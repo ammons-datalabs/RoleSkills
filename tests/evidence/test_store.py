@@ -50,7 +50,7 @@ def sample_chunk():
 
 def test_store_init(temp_db):
     """Test store initialization."""
-    store = EvidenceStore(temp_db)
+    _store = EvidenceStore(temp_db)  # noqa: F841
     assert Path(temp_db).exists()
 
 

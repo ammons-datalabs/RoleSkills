@@ -1,6 +1,5 @@
 """Tests for path filtering."""
 
-import pytest
 
 from roleskills.evidence.filters import is_allowed
 

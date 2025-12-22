@@ -6,7 +6,7 @@ from typing import List
 
 from ..jd.schema import JD, Requirement, WEIGHT_NUM
 from .factors import Factor
-from .models import RequirementScore, MatchSummary
+from .models import RequirementScore
 
 
 def score_requirement(req: Requirement, factor: Factor) -> float:
