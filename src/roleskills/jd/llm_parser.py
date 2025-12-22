@@ -36,9 +36,9 @@ def llm_parse_jd(text: str, model: str = "gpt-4o-mini", use_cache: bool = True) 
             "The LLM parser requires OpenAI API access for semantic enhancement."
         )
 
-    # Clean and cache
+    # Clean and cache (SHA1 used for cache key, not security)
     cleaned = clean_jd_text(text)
-    cache_key = hashlib.sha1(cleaned.encode()).hexdigest()
+    cache_key = hashlib.sha1(cleaned.encode(), usedforsecurity=False).hexdigest()
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cache_path = CACHE_DIR / f"{cache_key}.json"

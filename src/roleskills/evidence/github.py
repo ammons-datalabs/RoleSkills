@@ -3,7 +3,7 @@ Git/GitHub discovery and commit selection.
 """
 
 import re
-import subprocess
+import subprocess  # nosec B404 - git is a trusted binary
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -23,7 +23,7 @@ def _git(repo_dir: Path, *args: str) -> str:
     Raises:
         subprocess.CalledProcessError: If git command fails
     """
-    return subprocess.check_output(
+    return subprocess.check_output(  # nosec B603 B607 - git with fixed args
         ["git", *args],
         cwd=repo_dir,
         text=True,

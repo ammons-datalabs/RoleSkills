@@ -180,9 +180,11 @@ def build_index(
                     if file_counts[path] >= per_file_cap:
                         continue
 
-                    # De-duplication
+                    # De-duplication (SHA1 used for content hashing, not security)
                     normalized = normalize_text(text)
-                    content_hash = hashlib.sha1(normalized.encode()).hexdigest()
+                    content_hash = hashlib.sha1(
+                        normalized.encode(), usedforsecurity=False
+                    ).hexdigest()
 
                     if content_hash in seen_hashes:
                         continue
@@ -235,8 +237,8 @@ def build_index(
                     if len(chunks) >= chunk_budget:
                         break
 
-            except Exception:
-                # Skip commits that fail to process
+            except (OSError, ValueError, KeyError):
+                # Skip commits that fail to process (git errors, malformed patches)
                 continue
 
             # Stop if budget reached

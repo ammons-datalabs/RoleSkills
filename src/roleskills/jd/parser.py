@@ -92,8 +92,10 @@ def _normalize_title(text: str) -> str:
 
 
 def _mk_id(text: str) -> str:
-    """Generate deterministic ID from text."""
-    return hashlib.sha1(text.strip().lower().encode("utf-8")).hexdigest()[:12]
+    """Generate deterministic ID from text (not used for security)."""
+    return hashlib.sha1(
+        text.strip().lower().encode("utf-8"), usedforsecurity=False
+    ).hexdigest()[:12]
 
 
 def parse_jd(md: str, role: str | None = None, title: str | None = None) -> JD:
